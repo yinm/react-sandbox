@@ -11,36 +11,33 @@
   <div id="root"></div>
   <script type="text/babel">
 
-    class Button extends React.Component {
-      constructor(props) {
-        super()
-        this.state = { count: props.defaultCount }
-
-        this.add = this.add.bind(this)
-      }
-
-      add() {
-        this.setState({ count: this.state.count + 1 })
-      }
-
+    class Header extends React.Component {
       render() {
         return (
           <div>
-            { this.state.count }
-            <button onClick={this.add}>count up!!!</button>
+            <LoginButton />
           </div>
         )
       }
     }
 
-    class Parent extends React.Component {
+    class LoginButton extends React.Component {
+      constructor() {
+        super()
+        this.state = { loggedIn: false }
+      }
+
       render() {
-        return <Button defaultCount={5} />
+        const msg = this.state.loggedIn ? 'logout' : 'login'
+
+        return (
+          <div>{ msg }</div>
+        )
       }
     }
 
     ReactDOM.render(
-      <Parent />,
+      <Header/>,
       document.getElementById('root')
     )
 
