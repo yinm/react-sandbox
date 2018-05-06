@@ -11,24 +11,30 @@
   <div id="root"></div>
   <script type="text/babel">
 
-    class LoginButton extends React.Component {
-      render() {
-        return (
-          <div>{ this.props.text }</div>
-        )
-      }
-    }
+    class Button extends React.Component {
+      constructor() {
+        super()
+        this.state = {count: 0}
 
-    class Page extends React.Component {
+        this.add = this.add.bind(this)
+      }
+
+      add() {
+        this.setState({ count: this.state.count + 1 })
+      }
+
       render() {
         return (
-          <LoginButton text="try Login" />
+          <div>
+            { this.state.count }
+            <button onClick={this.add}>count up!!!</button>
+          </div>
         )
       }
     }
 
     ReactDOM.render(
-      <Page/>,
+      <Button/>,
       document.getElementById('root')
     )
 
