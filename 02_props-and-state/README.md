@@ -1,0 +1,1 @@
+ref: [React.js コンポーネント入門（props/state） - Qiita](https://qiita.com/KeitaMoromizato/items/0da6c8e4264b1f206451)
